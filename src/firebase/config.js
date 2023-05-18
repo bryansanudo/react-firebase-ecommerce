@@ -4,12 +4,12 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyBu8SC-WJ15DIBHTHXSCtdiOtOPKQf0b8E",
-  authDomain: "eshop-f1ef1.firebaseapp.com",
-  projectId: "eshop-f1ef1",
-  storageBucket: "eshop-f1ef1.appspot.com",
-  messagingSenderId: "730093808777",
-  appId: "1:730093808777:web:0b06f76266530a24b12a58",
+  apiKey: "AIzaSyCfeQcFRZXw-J3ealEsMh2Kep9C5UhLOFQ",
+  authDomain: "dealer-a1957.firebaseapp.com",
+  projectId: "dealer-a1957",
+  storageBucket: "dealer-a1957.appspot.com",
+  messagingSenderId: "872417427443",
+  appId: "1:872417427443:web:7f35818242f40d10f75c86",
 };
 
 const app = initializeApp(firebaseConfig);
