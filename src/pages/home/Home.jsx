@@ -1,4 +1,5 @@
 import Slider from "@/components/slider/Slider";
+
 const Home = () => {
   return (
     <div>
