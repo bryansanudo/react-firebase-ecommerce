@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { SET_ACTIVE_USER, REMOVE_ACTIVE_USER } from "@/redux/slice/authSlice";
 import { ShowOnLogin, ShowOnLogout } from "@/components/hiddenLink/hiddenLink";
 import AdminOnlyRoute from "@/components/adminOnlyRoute/AdminOnlyRoute";
+import { AdminOnlyLink } from "@/components/adminOnlyRoute/AdminOnlyRoute";
 
 const logo = (
   <div className={styles.logo}>
@@ -108,11 +109,11 @@ const Header = () => {
               <FaTimes size={22} color="#fff" onClick={hideMenu} />
             </li>
             <li>
-              <AdminOnlyRoute>
-                <Link to="admin">
+              <AdminOnlyLink>
+                <Link to="/admin/home">
                   <button className="--btn --btn-primary">Admin</button>
                 </Link>
-              </AdminOnlyRoute>
+              </AdminOnlyLink>
             </li>
             <li>
               <NavLink to="/" className={activeLink}>
