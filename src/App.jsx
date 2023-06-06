@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { Home, Contact, Login, Register, Reset, Admin } from "@/pages/index.js";
 import { Header, Footer, AdminOnlyRoute } from "@/components/index.js";
+import ProductDetails from "@/components/product/productDetails/ProductDetails";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -26,6 +27,7 @@ const App = () => {
               </AdminOnlyRoute>
             }
           />
+          <Route path="/product-details/:id" element={<ProductDetails />} />
         </Routes>
         <Footer />
       </BrowserRouter>
