@@ -1,13 +1,24 @@
 import styles from "@/components/product/productList/ProductList.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsFillGridFill } from "react-icons/bs";
 import { FaListAlt } from "react-icons/fa";
 import Search from "@/components/search/Search";
 import ProductItem from "@/components/product/productItem/ProductItem";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  FILTER_BY_SEARCH,
+  selectFilteredProducts,
+} from "@/redux/slice/filterSlice";
 
 const ProductList = ({ products }) => {
   const [grid, setGrid] = useState(true);
   const [search, setSearch] = useState("");
+  const filteredProducts = useSelector(selectFilteredProducts);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(FILTER_BY_SEARCH({ products, search }));
+  }, [dispatch, products, search]);
 
   return (
     <div className={styles["product-list"]} id="product">
@@ -20,7 +31,7 @@ const ProductList = ({ products }) => {
           />
           <FaListAlt size={24} color="#0066d4" onClick={() => setGrid(false)} />
           <p>
-            <b>10</b> products found.
+            <b>{filteredProducts.length}</b> products found.
           </p>
         </div>
         {/* serach icon */}
@@ -48,7 +59,7 @@ const ProductList = ({ products }) => {
           <p>No products found</p>
         ) : (
           <>
-            {products.map((product) => {
+            {filteredProducts.map((product) => {
               return (
                 <div key={product.id}>
                   <ProductItem {...product} grid={grid} product={product} />
